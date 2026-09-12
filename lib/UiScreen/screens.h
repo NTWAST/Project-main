@@ -13,22 +13,37 @@ enum ScreensEnum {
     _SCREEN_ID_FIRST = 1,
     SCREEN_ID_LOADING = 1,
     SCREEN_ID_MAIN = 2,
-    _SCREEN_ID_LAST = 2
+    SCREEN_ID_MANUAL = 3,
+    _SCREEN_ID_LAST = 3
 };
 
 typedef struct _objects_t {
     lv_obj_t *loading;
     lv_obj_t *main;
+    lv_obj_t *manual;
     lv_obj_t *intro;
     lv_obj_t *obj0;
     lv_obj_t *obj1;
-    lv_obj_t *chartinside;
-    lv_obj_t *chartoutside;
+    lv_obj_t *chartinside_a;
+    lv_obj_t *chartoutside_a;
     lv_obj_t *temparc;
     lv_obj_t *settemp;
-    lv_obj_t *cooling;
-    lv_obj_t *fan;
+    lv_obj_t *system;
     lv_obj_t *ledstatus;
+    lv_obj_t *obj2;
+    lv_obj_t *mode_manual;
+    lv_obj_t *obj3;
+    lv_obj_t *obj4;
+    lv_obj_t *chartinside_m;
+    lv_obj_t *chartoutside_m;
+    lv_obj_t *temparc_m;
+    lv_obj_t *settemp_1;
+    lv_obj_t *cooling_1;
+    lv_obj_t *fan_1;
+    lv_obj_t *ledstatus_1;
+    lv_obj_t *obj5;
+    lv_obj_t *mode_auto;
+    lv_obj_t *fan_2;
 } objects_t;
 
 extern objects_t objects;
@@ -38,6 +53,9 @@ void tick_screen_loading();
 
 void create_screen_main();
 void tick_screen_main();
+
+void create_screen_manual();
+void tick_screen_manual();
 
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
