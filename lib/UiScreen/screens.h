@@ -24,14 +24,22 @@ typedef struct _objects_t {
     lv_obj_t *intro;
     lv_obj_t *obj0;
     lv_obj_t *obj1;
+<<<<<<< HEAD
     lv_obj_t *chartinside_a;
     lv_obj_t *chartoutside_a;
+=======
+    lv_obj_t *label_temp2;
+>>>>>>> 3d8dbd6 (v1.2)
     lv_obj_t *temparc;
     lv_obj_t *settemp;
     lv_obj_t *system;
     lv_obj_t *ledstatus;
     lv_obj_t *obj2;
     lv_obj_t *mode_manual;
+<<<<<<< HEAD
+=======
+    lv_obj_t *label_temp1;
+>>>>>>> 3d8dbd6 (v1.2)
     lv_obj_t *obj3;
     lv_obj_t *obj4;
     lv_obj_t *chartinside_m;

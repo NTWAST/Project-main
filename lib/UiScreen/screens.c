@@ -94,12 +94,25 @@ void create_screen_main() {
             lv_obj_set_size(obj, 156, 204);
         }
         {
+<<<<<<< HEAD
+=======
+            // label_temp2
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.label_temp2 = obj;
+            lv_obj_set_pos(obj, 56, 165);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            lv_obj_set_style_text_font(obj, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text_static(obj, "0");
+        }
+        {
+>>>>>>> 3d8dbd6 (v1.2)
             lv_obj_t *obj = lv_label_create(parent_obj);
             lv_obj_set_pos(obj, 9, 43);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_text_static(obj, "Temp inside (C)");
         }
         {
+<<<<<<< HEAD
             // chartinside_a
             lv_obj_t *obj = lv_chart_create(parent_obj);
             objects.chartinside_a = obj;
@@ -107,12 +120,15 @@ void create_screen_main() {
             lv_obj_set_size(obj, 145, 74);
         }
         {
+=======
+>>>>>>> 3d8dbd6 (v1.2)
             lv_obj_t *obj = lv_label_create(parent_obj);
             lv_obj_set_pos(obj, 10, 139);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_text_static(obj, "Temp outside (C)");
         }
         {
+<<<<<<< HEAD
             // chartoutside_a
             lv_obj_t *obj = lv_chart_create(parent_obj);
             objects.chartoutside_a = obj;
@@ -120,6 +136,8 @@ void create_screen_main() {
             lv_obj_set_size(obj, 145, 74);
         }
         {
+=======
+>>>>>>> 3d8dbd6 (v1.2)
             lv_obj_t *obj = lv_obj_create(parent_obj);
             lv_obj_set_pos(obj, 162, 33);
             lv_obj_set_size(obj, 154, 204);
@@ -223,6 +241,18 @@ void create_screen_main() {
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_label_set_text_static(obj, "Mode");
         }
+<<<<<<< HEAD
+=======
+        {
+            // label_temp1
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.label_temp1 = obj;
+            lv_obj_set_pos(obj, 56, 70);
+            lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+            lv_obj_set_style_text_font(obj, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text_static(obj, "0");
+        }
+>>>>>>> 3d8dbd6 (v1.2)
     }
     
     tick_screen_main();
@@ -514,8 +544,13 @@ ext_font_desc_t fonts[] = {
 #if LV_FONT_MONTSERRAT_46
     { "MONTSERRAT_46", &lv_font_montserrat_46 },
 #endif
+<<<<<<< HEAD
 #if LV_FONT_MONTSERRAT_48
     { "MONTSERRAT_48", &lv_font_montserrat_48 },
+=======
+#if LV_FONT_MONTSERRAT_14
+    { "MONTSERRAT_48", &lv_font_montserrat_14 },
+>>>>>>> 3d8dbd6 (v1.2)
 #endif
 };
 

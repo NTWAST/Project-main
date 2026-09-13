@@ -17,7 +17,11 @@
 #define TOUCH_XPT2046_MOSI 23
 #define TOUCH_XPT2046_CS 27
 // #define TOUCH_XPT2046_INT 3
+<<<<<<< HEAD
 #define TOUCH_XPT2046_ROTATION 1
+=======
+#define TOUCH_XPT2046_ROTATION 0
+>>>>>>> 3d8dbd6 (v1.2)
 #define TOUCH_XPT2046_SAMPLES 50
 
 
@@ -32,10 +36,17 @@
 
 // Please fill below values from Arduino_GFX Example - TouchCalibration
 bool touch_swap_xy = true;
+<<<<<<< HEAD
 int16_t touch_map_x1 = 3643;
 int16_t touch_map_x2 = 279;
 int16_t touch_map_y1 = 495;
 int16_t touch_map_y2 = 3746;
+=======
+int16_t touch_map_x1 = 3926;
+int16_t touch_map_x2 = 346;
+int16_t touch_map_y1 = 229;
+int16_t touch_map_y2 = 3942;
+>>>>>>> 3d8dbd6 (v1.2)
 
 int16_t touch_max_x = 320, touch_max_y = 240;
 int16_t touch_raw_x = 0, touch_raw_y = 0;

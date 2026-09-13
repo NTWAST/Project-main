@@ -25,6 +25,10 @@
  * #define LV_USE_DEMO_WIDGETS 1
  ******************************************************************************/
 #include "ui.h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d8dbd6 (v1.2)
 // #define DIRECT_MODE // Uncomment to enable full frame buffer
 
 /*******************************************************************************
@@ -47,6 +51,10 @@
  * Seeeduino XIAO dev board    : CS:  3, DC:  2, RST:  1, BL:  0, SCK:  8, MOSI: 10, MISO:  9
  * Teensy 4.1 dev board        : CS: 39, DC: 41, RST: 40, BL: 22, SCK: 13, MOSI: 11, MISO: 12
  ******************************************************************************/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d8dbd6 (v1.2)
 #include <Arduino_GFX_Library.h>
 
 #define GFX_BL DF_GFX_BL // default backlight pin, you may replace DF_GFX_BL to actual backlight pin
@@ -56,6 +64,7 @@
 Arduino_GFX *gfx = create_default_Arduino_GFX();
 #else /* !defined(DISPLAY_DEV_KIT) */
 
+<<<<<<< HEAD
 
 #define GFX_BL 32
 Arduino_DataBus *bus = new Arduino_ESP32SPI(2 , 15 , 18, 23, GFX_NOT_DEFINED);
@@ -63,6 +72,13 @@ Arduino_GFX *gfx = new Arduino_ILI9342(bus, 4 , 0 );
 #define CANVAS
 
 
+=======
+#define GFX_BL 32
+Arduino_DataBus *bus = new Arduino_ESP32SPI(2, 15, 18, 23, GFX_NOT_DEFINED);
+Arduino_GFX *gfx = new Arduino_ILI9342(bus, 4, 0);
+#define CANVAS
+
+>>>>>>> 3d8dbd6 (v1.2)
 #endif /* !defined(DISPLAY_DEV_KIT) */
 /*******************************************************************************
  * End of Arduino_GFX setting
@@ -73,7 +89,10 @@ Arduino_GFX *gfx = new Arduino_ILI9342(bus, 4 , 0 );
  ******************************************************************************/
 #include "touch.hpp"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d8dbd6 (v1.2)
 /* Change to your screen resolution */
 static uint32_t screenWidth = 320;
 static uint32_t screenHeight = 240;
@@ -123,7 +142,12 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 }
 
 #include "event.h"
+<<<<<<< HEAD
 
+=======
+#define RELAY_PIN1 33
+#define RELAY_PIN2 32
+>>>>>>> 3d8dbd6 (v1.2)
 // #define LED2 25
 // #define SW1 22
 // #define anl1 33
@@ -149,6 +173,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 //   data2 = lv_chart_add_series(objects.chartadc, lv_color_hex(0xff69ff94), LV_CHART_AXIS_PRIMARY_Y);
 // }
 
+<<<<<<< HEAD
 
 void setup()
 {
@@ -156,6 +181,19 @@ void setup()
   Serial.begin(115200);
   // Serial.setDebugOutput(true);
   // while(!Serial);
+=======
+void setup()
+{
+  Wire.begin(21, 22);
+  Serial.begin(115200);
+  pinMode(RELAY_PIN1, OUTPUT);
+  pinMode(RELAY_PIN2, OUTPUT);
+  digitalWrite(RELAY_PIN1, LOW);
+  digitalWrite(RELAY_PIN2, LOW);
+  // Serial.setDebugOutput(true);
+  // while(!Serial);
+
+>>>>>>> 3d8dbd6 (v1.2)
   Serial.println("Arduino_GFX LVGL Widgets example");
 
 #ifdef GFX_EXTRA_PRE_INIT
@@ -174,8 +212,11 @@ void setup()
   digitalWrite(GFX_BL, HIGH);
 #endif
 
+<<<<<<< HEAD
  
   
+=======
+>>>>>>> 3d8dbd6 (v1.2)
   // Init touch device
   touch_init(gfx->width(), gfx->height(), gfx->getRotation());
 
@@ -184,8 +225,11 @@ void setup()
   screenWidth = gfx->width();
   screenHeight = gfx->height();
 
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> 3d8dbd6 (v1.2)
 #ifdef DIRECT_MODE
   bufSize = screenWidth * screenHeight;
 #else
@@ -229,6 +273,7 @@ void setup()
     indev_drv.read_cb = my_touchpad_read;
     lv_indev_drv_register(&indev_drv);
 
+<<<<<<< HEAD
 
 //    gfx->fillScreen(RED);
 //    gfx->flush();
@@ -239,13 +284,36 @@ void setup()
 //    gfx->fillScreen(BLUE);
 //    gfx->flush();
 //    //delay(1000);
+=======
+    //    gfx->fillScreen(RED);
+    //    gfx->flush();
+    //    //delay(1000);
+    //    gfx->fillScreen(GREEN);
+    //    gfx->flush();
+    //    //delay(1000);
+    //    gfx->fillScreen(BLUE);
+    //    gfx->flush();
+    //    //delay(1000);
+>>>>>>> 3d8dbd6 (v1.2)
 
     ui_init();
     // lv_obj_add_event_cb(objects.onbt , event_handler , LV_EVENT_CLICKED , pLED1);
     // lv_obj_add_event_cb(objects.offbt , event_handler , LV_EVENT_CLICKED , pLED1);
     // lv_obj_add_event_cb(objects.pwmslider , event_handler ,LV_EVENT_RELEASED , pLED2);
+<<<<<<< HEAD
     lv_timer_create(intro,1500,NULL);
     // plotchart();
+=======
+    lv_obj_add_event_cb(objects.system, switch_arc_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    lv_obj_add_event_cb(objects.temparc, value_changed_event_arc1_cb, LV_EVENT_VALUE_CHANGED, objects.settemp);
+    lv_timer_create(update_temperature_display, 1000, NULL);
+    lv_timer_create(checkRelayControl, 1000, NULL);
+    lv_obj_add_event_cb(objects.mode_manual, btn_change_event_cb, LV_EVENT_CLICKED, NULL);
+    lv_obj_add_event_cb(objects.mode_auto, btn_change_event_cb1, LV_EVENT_CLICKED, NULL);
+    lv_timer_create(intro, 1500, NULL);
+    lv_timer_create(temp1, 1000, NULL);
+    setupplotchart();
+>>>>>>> 3d8dbd6 (v1.2)
     // lv_demo_widgets();
 
     Serial.println("Setup done");
